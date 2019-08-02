@@ -3,6 +3,8 @@ project(first-yocto-app LANGUAGES CXX VERSION 1.0.0)
 
 find_package(Boost REQUIRED)
 
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -lpthread")
+
 add_executable(${PROJECT_NAME}
   src/Main.cpp
 )
@@ -16,6 +18,7 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
   boost_system
   boost_thread
+  boost_chrono
 )
 
 target_compile_options(${PROJECT_NAME}
